@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АУИПИК — Коммерческое предложение</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #F5F5F5;
+    --dark:      #333037;
+    --black:     #000000;
+    --mid:       #D9D9D9;
+    --blush:     #F6E1E1;
+    --lavender:  #DDD7E9;
+    --sky:       #DDEAF3;
+    --white:     #FFFFFF;
+    --secondary: #999999;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Onest', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    background: var(--bg);
+    color: var(--dark);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(245,245,245,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--mid);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    background: var(--dark);
+    color: var(--white);
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .nav-logo:hover { opacity: .75; }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--dark); }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 0;
+  }
+  section + section {
+    border-top: 1px solid var(--mid);
+  }
+
+  /* HERO */
+  .hero {
+    padding-top: 160px;
+    padding-bottom: 100px;
+    background: var(--white);
+    border-bottom: 1px solid var(--mid);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border: 1px solid var(--mid);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--secondary);
+    margin-bottom: 40px;
+  }
+  .hero-tag span {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--dark);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 5vw, 68px);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    color: var(--black);
+    max-width: 820px;
+    margin-bottom: 32px;
+  }
+  .hero-desc {
+    font-size: 18px;
+    color: var(--secondary);
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 56px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hero-meta-item .label {
+    font-size: 12px;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .hero-meta-item .value {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--dark);
+    letter-spacing: -0.3px;
+  }
+
+  /* SECTION HEADER */
+  .section-num {
+    font-size: 12px;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+    color: var(--black);
+    margin-bottom: 48px;
+  }
+
+  /* ЗАДАЧА */
+  .task-intro {
+    font-size: 17px;
+    color: var(--secondary);
+    line-height: 1.65;
+    max-width: 640px;
+    margin-bottom: 36px;
+  }
+  .task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .task-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    align-items: start;
+    padding: 20px 28px;
+    background: var(--white);
+    border-radius: 14px;
+    border: 1px solid transparent;
+    transition: border-color .18s;
+  }
+  .task-item:hover { border-color: var(--mid); }
+  .task-num {
+    font-size: 12px;
+    color: var(--secondary);
+    padding-top: 3px;
+    letter-spacing: .04em;
+  }
+  .task-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+  .task-desc {
+    font-size: 14px;
+    color: var(--secondary);
+    line-height: 1.55;
+  }
+  .task-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .task-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px 28px 24px;
+    border: 1px solid var(--mid);
+  }
+  .task-card.accent-sky { background: var(--sky); border-color: transparent; }
+  .task-card.accent-blush { background: var(--blush); border-color: transparent; }
+  .task-card.accent-lavender { background: var(--lavender); border-color: transparent; }
+  .task-card.full { grid-column: 1 / -1; }
+  .task-card h3 {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    color: var(--black);
+  }
+  .task-card p {
+    font-size: 15px;
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  /* ЭТАПЫ */
+  .stages-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+  .stage-tab {
+    padding: 8px 20px;
+    border-radius: 100px;
+    border: 1px solid var(--mid);
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    color: var(--secondary);
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .stage-tab.active {
+    background: var(--dark);
+    color: var(--white);
+    border-color: var(--dark);
+  }
+  .stage-panel { display: none; }
+  .stage-panel.active { display: block; }
+
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .step-item {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    align-items: start;
+    gap: 24px;
+    padding: 24px 28px;
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .step-item:hover { border-color: var(--mid); }
+  .step-num {
+    font-size: 13px;
+    color: var(--secondary);
+    padding-top: 3px;
+  }
+  .step-content h3 {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--black);
+  }
+  .step-content ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .step-content ul li {
+    font-size: 14px;
+    color: var(--secondary);
+    padding-left: 14px;
+    position: relative;
+  }
+  .step-content ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--mid);
+  }
+  .step-result {
+    font-size: 12px;
+    color: var(--secondary);
+    background: var(--bg);
+    border-radius: 100px;
+    padding: 4px 12px;
+    white-space: nowrap;
+    align-self: start;
+    margin-top: 2px;
+  }
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .tech-tag {
+    padding: 5px 14px;
+    border: 1px solid var(--mid);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--dark);
+  }
+
+  /* СРОКИ */
+  .timeline-wrap {
+    background: var(--white);
+    border-radius: 24px;
+    border: 1px solid var(--mid);
+    overflow: hidden;
+  }
+  .timeline-header {
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--mid);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .timeline-header h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black);
+  }
+  .timeline-badge {
+    background: var(--sky);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark);
+  }
+  .timeline-rows {
+    padding: 12px 0;
+  }
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 14px 32px;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+  .timeline-row:last-child { border-bottom: none; }
+  .timeline-row .phase {
+    font-size: 13px;
+    color: var(--secondary);
+  }
+  .timeline-row .bar-wrap {
+    height: 6px;
+    background: var(--bg);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .timeline-row .bar {
+    height: 100%;
+    border-radius: 100px;
+    background: var(--dark);
+  }
+  .timeline-row .date {
+    font-size: 13px;
+    color: var(--dark);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .milestones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .milestone {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--mid);
+    padding: 20px 22px;
+  }
+  .milestone .m-date {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--black);
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .milestone .m-label {
+    font-size: 13px;
+    color: var(--secondary);
+    line-height: 1.4;
+  }
+
+  /* ФОРМАТ РАБОТЫ */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .work-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px;
+    border: 1px solid var(--mid);
+  }
+  .work-card.featured {
+    background: var(--lavender);
+    border-color: transparent;
+    grid-column: 1 / -1;
+  }
+  .work-card .w-icon {
+    font-size: 24px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .work-card h3 {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--black);
+  }
+  .work-card p {
+    font-size: 15px;
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  /* СТАВКИ */
+  .rates-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--mid);
+  }
+  .rates-table th {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--secondary);
+    padding: 16px 24px;
+    text-align: left;
+    border-bottom: 1px solid var(--mid);
+    background: var(--bg);
+  }
+  .rates-table td {
+    padding: 20px 24px;
+    font-size: 15px;
+    color: var(--dark);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    vertical-align: top;
+  }
+  .rates-table tr:last-child td { border-bottom: none; }
+  .rates-table .role {
+    font-weight: 500;
+    color: var(--black);
+    font-size: 15px;
+  }
+  .rates-table .grade {
+    display: inline-flex;
+    margin-top: 4px;
+    padding: 2px 10px;
+    background: var(--bg);
+    border-radius: 100px;
+    font-size: 11px;
+    color: var(--secondary);
+    border: 1px solid var(--mid);
+  }
+  .rates-table .rate {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black);
+    white-space: nowrap;
+  }
+  .rates-table .rate-sub {
+    font-size: 12px;
+    color: var(--secondary);
+  }
+  .rates-table .duties {
+    font-size: 13px;
+    color: var(--secondary);
+    line-height: 1.6;
+  }
+
+  /* СТОИМОСТЬ */
+  .budget-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .budget-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px;
+    border: 1px solid var(--mid);
+  }
+  .budget-card.total {
+    background: var(--dark);
+    border-color: transparent;
+    grid-column: span 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .budget-card .b-label {
+    font-size: 13px;
+    color: var(--secondary);
+    margin-bottom: 10px;
+  }
+  .budget-card.total .b-label {
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    margin: 0;
+  }
+  .budget-card .b-amount {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 500;
+    color: var(--black);
+    letter-spacing: -0.5px;
+  }
+  .budget-card.total .b-amount {
+    color: var(--white);
+    font-size: clamp(28px, 3vw, 36px);
+  }
+  .budget-note {
+    font-size: 13px;
+    color: var(--secondary);
+    padding: 16px 20px;
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--mid);
+  }
+
+  /* КЕЙСЫ */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .case-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--mid);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .case-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  }
+  .case-img {
+    height: 220px;
+    overflow: hidden;
+    background: var(--sky);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .case-img.avito-bg { background: linear-gradient(135deg, #DDEAF3 0%, #DDD7E9 100%); }
+  .case-img.mila-bg { background: linear-gradient(135deg, #DDD7E9 0%, #F6E1E1 100%); }
+  .case-img-placeholder {
+    font-size: 48px;
+    opacity: 0.3;
+  }
+  .case-body { padding: 24px; }
+  .case-body h3 {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--black);
+  }
+  .case-body p {
+    font-size: 14px;
+    color: var(--secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .case-link {
+    font-size: 13px;
+    color: var(--dark);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid var(--mid);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+  .case-link:hover { border-color: var(--dark); }
+  .cases-more {
+    margin-top: 16px;
+    text-align: center;
+    padding: 24px;
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--mid);
+  }
+  .cases-more a {
+    font-size: 15px;
+    color: var(--dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--mid);
+    padding-bottom: 2px;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--dark);
+    border-top: none;
+  }
+  .cta-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: center;
+  }
+  .cta-section .section-num { color: rgba(255,255,255,0.3); }
+  .cta-section .section-title { color: var(--white); margin-bottom: 24px; }
+  .cta-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cta-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+  }
+  .cta-steps .step-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 32px;
+    min-width: 280px;
+  }
+  .contact-card .c-name {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+  }
+  .contact-card .c-role {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 24px;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-link:hover { color: var(--white); }
+  .contact-link-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  footer .f-logo {
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  footer .f-logo:hover { opacity: .7; }
+  footer .f-note {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .container { padding: 0 20px; }
+    section { padding: 64px 0; }
+    .hero { padding-top: 100px; padding-bottom: 64px; }
+    .task-grid { grid-template-columns: 1fr; }
+    .task-card.full { grid-column: 1; }
+    .work-grid { grid-template-columns: 1fr; }
+    .work-card.featured { grid-column: 1; }
+    .budget-cards { grid-template-columns: 1fr; }
+    .budget-card.total { grid-column: 1; flex-direction: column; align-items: flex-start; gap: 8px; }
+    .cases-grid { grid-template-columns: 1fr; }
+    .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+    .milestones { grid-template-columns: 1fr 1fr; }
+    .step-item { grid-template-columns: 36px 1fr; }
+    .step-result { display: none; }
+    .rates-table .duties { display: none; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://loo.ch" target="_blank">Луч</a>
+  <ul class="nav-links">
+    <li><a href="#task">Задача</a></li>
+    <li><a href="#stages">Этапы</a></li>
+    <li><a href="#timeline">Сроки</a></li>
+    <li><a href="#process">Как работаем</a></li>
+    <li><a href="#rates">Ставки</a></li>
+    <li><a href="#budget">Стоимость</a></li>
+    <li><a href="#cases">Кейсы</a></li>
+    <li><a href="#next">Что дальше</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">
+      <span></span>
+      Коммерческое предложение · Редизайн сайта
+    </div>
+    <h1>АУИПИК —<br>новый сайт&nbsp;для&nbsp;агентства</h1>
+    <p class="hero-desc">Создадим современный сайт, который понятно объясняет, чем занимается агентство, и удобно работает для всех аудиторий.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Срок проекта</span>
+        <span class="value">~3,5 месяца</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Старт</span>
+        <span class="value">6 апреля</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Бюджет</span>
+        <span class="value">4 372 000 ₽</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Формат</span>
+        <span class="value">T&amp;M</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЗАДАЧА -->
+<section id="task">
+  <div class="container">
+    <p class="section-num">01 — Задача</p>
+    <h2 class="section-title">Что нужно&nbsp;сделать</h2>
+    <div class="task-intro">
+      <p>Текущий сайт устарел: недостоверная информация, неудобная админка, слабая структура. Новый сайт должен объяснять, чем занимается агентство, и работать для разных аудиторий.</p>
+    </div>
+    <div class="task-list">
+      <div class="task-item">
+        <div class="task-num">01</div>
+        <div class="task-body">
+          <div class="task-title">Mobile First и удобная CMS</div>
+          <div class="task-desc">Идеальное отображение на смартфонах. Команда заказчика управляет контентом без помощи разработчиков.</div>
+        </div>
+      </div>
+      <div class="task-item">
+        <div class="task-num">02</div>
+        <div class="task-body">
+          <div class="task-title">Раздел для инвесторов — как сценарий</div>
+          <div class="task-desc">Не каталог объектов, а пошаговый путь: как получить объект, участвовать в аукционе, какие шаги пройти.</div>
+        </div>
+      </div>
+      <div class="task-item">
+        <div class="task-num">03</div>
+        <div class="task-body">
+          <div class="task-title">Кино- и фотосъёмки, приём заявок</div>
+          <div class="task-desc">Описание процесса, объекты, контакты, бланк заявки. Формы для конкурсов — собственные или через CRM.</div>
+        </div>
+      </div>
+      <div class="task-item">
+        <div class="task-num">04</div>
+        <div class="task-body">
+          <div class="task-title">Журнал с поиском по PDF</div>
+          <div class="task-desc">Библиотека всех выпусков «Охраняется государством» с удобным просмотром и встроенным поиском.</div>
+        </div>
+      </div>
+      <div class="task-item">
+        <div class="task-num">05</div>
+        <div class="task-body">
+          <div class="task-title">Перенос нормативной документации</div>
+          <div class="task-desc">Вся документация аккуратно переносится с текущего сайта. Ничего не теряется.</div>
+        </div>
+      </div>
+      <div class="task-item">
+        <div class="task-num">06</div>
+        <div class="task-body">
+          <div class="task-title">Версия для слабовидящих</div>
+          <div class="task-desc">Обязательна. Мультиязычность RU/EN — на стадии уточнения со стороны клиента.</div>
+        </div>
+      </div>
+      <div class="task-item">
+        <div class="task-num">07</div>
+        <div class="task-body">
+          <div class="task-title">Готовность к самостоятельному ведению</div>
+          <div class="task-desc">Сайт сдаём так, чтобы команда заказчика или любой подрядчик могли работать с ним без нашей помощи.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЭТАПЫ -->
+<section id="stages">
+  <div class="container">
+    <p class="section-num">02 — Этапы</p>
+    <h2 class="section-title">Как будем работать</h2>
+
+    <div class="stages-tabs">
+      <button class="stage-tab active" onclick="showStage('design', this)">Дизайн</button>
+      <button class="stage-tab" onclick="showStage('dev', this)">Разработка</button>
+    </div>
+
+    <!-- DESIGN -->
+    <div class="stage-panel active" id="stage-design">
+      <div class="steps-list">
+        <div class="step-item">
+          <span class="step-num">01</span>
+          <div class="step-content">
+            <h3>Погружение в проект</h3>
+            <ul>
+              <li>Изучим текущие материалы и бриф</li>
+              <li>Проанализируем конкурентов, лучшие практики и дизайн-язык</li>
+              <li>Соберём файл с ресёрчем фич для проектирования</li>
+            </ul>
+          </div>
+          <span class="step-result">2 дня</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">02</span>
+          <div class="step-content">
+            <h3>UX-проектирование</h3>
+            <ul>
+              <li>Опишем основные пользовательские пути</li>
+              <li>Разработаем архитектуру основных разделов</li>
+            </ul>
+          </div>
+          <span class="step-result">~2,5 недели</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">03</span>
+          <div class="step-content">
+            <h3>Дизайн-концепция</h3>
+            <ul>
+              <li>Три направления стилистики для согласования</li>
+              <li>Концепция на примере нескольких экранов главной</li>
+              <li>Современный минималистичный стиль, близкий молодёжной аудитории</li>
+            </ul>
+          </div>
+          <span class="step-result">~2 недели</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">04</span>
+          <div class="step-content">
+            <h3>UI-дизайн</h3>
+            <ul>
+              <li>Начинаем с мобильной версии, затем десктоп</li>
+              <li>Все экраны, состояния и компоненты</li>
+              <li>UI-kit для последовательной разработки</li>
+            </ul>
+          </div>
+          <span class="step-result">~6 недель</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">05</span>
+          <div class="step-content">
+            <h3>Передача в разработку и дизайн-ревью</h3>
+            <ul>
+              <li>Подготовим и передадим макеты</li>
+              <li>Проведём дизайн-ревью в процессе вёрстки</li>
+            </ul>
+          </div>
+          <span class="step-result">~3 дня параллельно</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEV -->
+    <div class="stage-panel" id="stage-dev">
+      <div class="tech-stack">
+        <span class="tech-tag">Next.js 14</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">Tailwind</span>
+        <span class="tech-tag">PDF.js</span>
+        <span class="tech-tag">Strapi 4</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">MeiliSearch</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">GitHub Actions</span>
+        <span class="tech-tag">Selectel</span>
+      </div>
+      <div class="steps-list">
+        <div class="step-item">
+          <span class="step-num">01</span>
+          <div class="step-content">
+            <h3>Инфраструктура и архитектура</h3>
+            <ul>
+              <li>Настройка сервера, домена и HTTPS</li>
+              <li>Автодеплой при изменениях, хранение файлов</li>
+              <li>Резервные копии базы данных</li>
+            </ul>
+          </div>
+          <span class="step-result">1,5 недели</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">02</span>
+          <div class="step-content">
+            <h3>Backend / Strapi</h3>
+            <ul>
+              <li>CMS: новости, документы, журнал, объекты, маршруты, подкасты</li>
+              <li>Права доступа, поиск, формы заявок с отправкой на почту</li>
+              <li>SEO, перенос данных со старого сайта</li>
+            </ul>
+          </div>
+          <span class="step-result">3 недели</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">03</span>
+          <div class="step-content">
+            <h3>Frontend / Next.js</h3>
+            <ul>
+              <li>Все страницы и компоненты по макетам</li>
+              <li>Журнал с просмотром PDF, поиск по сайту</li>
+              <li>Версия для слабовидящих</li>
+            </ul>
+          </div>
+          <span class="step-result">4 недели</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">04</span>
+          <div class="step-content">
+            <h3>Интеграция и тестирование</h3>
+            <ul>
+              <li>Подключение к CMS, проверка всех функций</li>
+              <li>Тесты на телефонах, планшетах, проверка скорости</li>
+              <li>Исправление ошибок</li>
+            </ul>
+          </div>
+          <span class="step-result">2 недели</span>
+        </div>
+        <div class="step-item">
+          <span class="step-num">05</span>
+          <div class="step-content">
+            <h3>Запуск и передача проекта</h3>
+            <ul>
+              <li>Публикация, финальная проверка</li>
+              <li>Инструкция для команды заказчика</li>
+              <li>Передача доступов и обучение сотрудников</li>
+            </ul>
+          </div>
+          <span class="step-result">1 неделя</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- СРОКИ -->
+<section id="timeline">
+  <div class="container">
+    <p class="section-num">03 — Сроки</p>
+    <h2 class="section-title">Таймлайн проекта</h2>
+  </div>
+
+  <div class="gtt-shell">
+    <div class="gtt-controls">
+      <div class="gtt-ctrl-inner">
+        <div class="gtt-scale-btns">
+          <button class="gtt-btn active" data-scale="month">По месяцам</button>
+          <button class="gtt-btn" data-scale="week">По неделям</button>
+        </div>
+        <span class="gtt-hint">▶ нажмите на строку, чтобы раскрыть подзадачи</span>
+      </div>
+    </div>
+    <div class="gtt-scroll">
+      <table class="gtt-table" id="gttTable">
+        <thead><tr>
+          <th class="gtt-th-label"></th>
+          <th class="gtt-th-chart"><div class="gtt-head" id="gttHead"></div></th>
+        </tr></thead>
+        <tbody id="gttBody"></tbody>
+      </table>
+    </div>
+    <div class="gtt-tooltip" id="gttTip"></div>
+  </div>
+
+  <div class="container">
+    <p class="gtt-note">В таймлайне — минимальный срок. После завершения дизайна уточним объём разработки.</p>
+  </div>
+</section>
+
+<style>
+.gtt-shell { background:var(--white); border-top:1px solid var(--mid); border-bottom:1px solid var(--mid); }
+.gtt-controls { border-bottom:1px solid var(--mid); background:var(--bg); }
+.gtt-ctrl-inner { max-width:1120px; margin:0 auto; padding:12px 48px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.gtt-scale-btns { display:flex; gap:6px; }
+.gtt-btn { padding:5px 14px; border-radius:100px; border:1px solid var(--mid); font-size:12px; font-family:inherit; background:transparent; color:var(--secondary); cursor:pointer; transition:all .15s; }
+.gtt-btn.active { background:var(--dark); color:#fff; border-color:var(--dark); }
+.gtt-hint { font-size:12px; color:var(--secondary); }
+
+.gtt-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+
+/* table layout — single source of truth for row height */
+.gtt-table { border-collapse:collapse; width:100%; min-width:900px; table-layout:fixed; }
+.gtt-th-label { width:220px; min-width:220px; position:sticky; left:0; background:var(--bg); border-right:1px solid var(--mid); border-bottom:1px solid var(--mid); height:36px; z-index:20; }
+.gtt-th-chart { border-bottom:1px solid var(--mid); height:36px; padding:0; }
+
+/* header */
+.gtt-head { position:relative; height:36px; }
+.gtt-head-cell { position:absolute; top:0; bottom:0; display:flex; align-items:center; padding-left:10px; font-size:11px; color:var(--secondary); text-transform:uppercase; letter-spacing:.06em; border-left:1px solid rgba(0,0,0,.07); white-space:nowrap; overflow:hidden; }
+
+/* body rows */
+.gtt-tr { border-bottom:1px solid rgba(0,0,0,.04); }
+.gtt-tr.is-sub.hidden { display:none; }
+.gtt-tr.is-sub .gtt-td-label { padding-left:38px; font-size:12px; color:var(--secondary); }
+
+.gtt-td-label {
+  position:sticky; left:0; background:var(--white); z-index:10;
+  border-right:1px solid var(--mid);
+  padding:0 10px 0 16px;
+  height:40px;
+  font-size:13px; color:var(--dark);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  vertical-align:middle;
+  transition:background .12s;
+}
+.gtt-tr:hover .gtt-td-label { background:#fafafa; }
+.gtt-tr.is-group .gtt-td-label { font-weight:500; color:var(--black); cursor:pointer; }
+.gtt-tr.is-sub .gtt-td-label { background:rgba(0,0,0,.012); }
+.gtt-tr.is-sub:hover .gtt-td-label { background:rgba(0,0,0,.022); }
+
+.gtt-lbl-inner { display:flex; align-items:center; gap:6px; }
+.gtt-toggle { font-size:9px; color:var(--secondary); transition:transform .2s; flex-shrink:0; display:inline-block; width:14px; }
+.gtt-toggle.open { transform:rotate(90deg); }
+
+.gtt-td-chart { position:relative; height:40px; padding:0; vertical-align:middle; }
+
+/* grid */
+.gtt-grid-line { position:absolute; top:0; bottom:0; width:1px; background:rgba(0,0,0,.05); pointer-events:none; }
+
+/* bars */
+.gtt-bar { position:absolute; top:50%; transform:translateY(-50%); height:24px; border-radius:6px; display:flex; align-items:center; padding:0 8px; font-size:11px; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; cursor:pointer; transition:filter .15s; box-sizing:border-box; }
+.gtt-bar:hover { filter:brightness(.93); }
+.gtt-bar.c-design  { background:var(--sky);       color:#3a6680; }
+.gtt-bar.c-concept { background:var(--lavender);   color:#5a4d7a; }
+.gtt-bar.c-ui      { background:var(--blush);      color:#7a4040; }
+.gtt-bar.c-dev     { background:#E2EDD8;            color:#3d5a2a; }
+.gtt-bar.c-launch  { background:var(--dark);        color:#fff;    }
+.gtt-bar.c-sub          { height:14px; border-radius:3px; cursor:pointer; transition:filter .15s; }
+.gtt-bar.c-sub.c-design  { background:rgba(186,224,240,.55); }
+.gtt-bar.c-sub.c-concept { background:rgba(210,200,235,.55); }
+.gtt-bar.c-sub.c-ui      { background:rgba(240,205,205,.55); }
+.gtt-bar.c-sub.c-dev     { background:rgba(195,225,185,.55); }
+.gtt-bar.c-sub.c-launch  { background:rgba(80,75,85,.35);    }
+.gtt-bar.c-sub:hover     { filter:brightness(.88) saturate(1.3); }
+
+/* today */
+.gtt-today-line { position:absolute; top:0; bottom:0; width:1.5px; background:#D4691E; z-index:15; pointer-events:none; }
+.gtt-today-chip { position:absolute; top:6px; transform:translateX(-50%); background:#D4691E; color:#fff; font-size:10px; font-weight:500; padding:2px 7px; border-radius:100px; white-space:nowrap; z-index:16; }
+
+/* tooltip */
+.gtt-tooltip { position:fixed; background:var(--dark); color:#fff; font-size:12px; font-family:'Onest',sans-serif; padding:7px 12px; border-radius:8px; pointer-events:none; opacity:0; transition:opacity .15s; z-index:9999; max-width:260px; line-height:1.5; white-space:pre-line; }
+.gtt-tooltip.visible { opacity:1; }
+
+.gtt-note { font-size:13px; color:var(--secondary); margin-top:20px; padding:14px 18px; background:var(--white); border-radius:12px; border:1px solid var(--mid); }
+
+@media(max-width:768px){
+  .gtt-ctrl-inner { padding:10px 20px; }
+  .gtt-th-label { width:150px; min-width:150px; }
+  .gtt-tr.is-sub .gtt-td-label { padding-left:26px; }
+  .gtt-hint { display:none; }
+}
+</style>
+
+<script>
+(function(){
+  function D(y,m,d){ return new Date(y,m-1,d); }
+  const RU_M  = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+  const RU_MS = ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+
+  const PS = D(2026,4,6), PE = D(2026,7,20);
+  const TMS = PE - PS;
+  function pct(dt){ return Math.max(0,Math.min(100,(dt-PS)/TMS*100)); }
+  function fmtS(dt){ return dt.getDate()+' '+RU_MS[dt.getMonth()]; }
+  function fmtR(s,e){ return s.getTime()===e.getTime()?fmtS(s):fmtS(s)+' — '+fmtS(e); }
+
+  const GROUPS = [
+    { id:'dig',  label:'Погружение в проект', color:'c-design',
+      s:D(2026,4,6),  e:D(2026,4,7),  subs:[] },
+    { id:'ux',   label:'UX-проектирование',   color:'c-design',
+      s:D(2026,4,8),  e:D(2026,4,24), subs:[
+        { label:'Главная',                 s:D(2026,4,8),  e:D(2026,4,9)  },
+        { label:'Об агентстве',            s:D(2026,4,10), e:D(2026,4,13) },
+        { label:'Документы',               s:D(2026,4,14), e:D(2026,4,15) },
+        { label:'Деятельность',            s:D(2026,4,16), e:D(2026,4,17) },
+        { label:'Пресс-служба',            s:D(2026,4,20), e:D(2026,4,21) },
+        { label:'Популяризация',           s:D(2026,4,22), e:D(2026,4,23) },
+        { label:'Журнал «ОГ»',             s:D(2026,4,24), e:D(2026,4,24) },
+      ]},
+    { id:'con',  label:'Дизайн-концепция',    color:'c-concept',
+      s:D(2026,4,27), e:D(2026,5,12), subs:[
+        { label:'Референсы и стилистика',  s:D(2026,4,27), e:D(2026,4,28) },
+        { label:'Концепт главной',         s:D(2026,4,29), e:D(2026,5,8)  },
+        { label:'Согласование концепции',  s:D(2026,5,12), e:D(2026,5,12) },
+      ]},
+    { id:'ui',   label:'UI-дизайн',           color:'c-ui',
+      s:D(2026,5,13), e:D(2026,6,24), subs:[
+        { label:'Главная + адаптив',       s:D(2026,5,13), e:D(2026,5,15) },
+        { label:'Об агентстве + адаптив',  s:D(2026,5,18), e:D(2026,5,26) },
+        { label:'Документы + адаптив',     s:D(2026,5,27), e:D(2026,5,29) },
+        { label:'Деятельность + адаптив',  s:D(2026,6,1),  e:D(2026,6,5)  },
+        { label:'Пресс-служба + адаптив',  s:D(2026,6,8),  e:D(2026,6,11) },
+        { label:'Популяризация + адаптив', s:D(2026,6,15), e:D(2026,6,18) },
+        { label:'Журнал «ОГ»',             s:D(2026,6,19), e:D(2026,6,24) },
+        { label:'UI-kit',                  s:D(2026,5,13), e:D(2026,6,24) },
+        { label:'Передача в разработку',   s:D(2026,5,25), e:D(2026,6,5)  },
+      ]},
+    { id:'inf',  label:'Инфраструктура',      color:'c-dev',
+      s:D(2026,5,13), e:D(2026,5,22), subs:[] },
+    { id:'be',   label:'Backend / Strapi',    color:'c-dev',
+      s:D(2026,5,25), e:D(2026,6,15), subs:[] },
+    { id:'fe',   label:'Frontend / Next.js',  color:'c-dev',
+      s:D(2026,6,16), e:D(2026,7,13), subs:[
+        { label:'Интеграция и тестирование', s:D(2026,6,30), e:D(2026,7,13) },
+      ]},
+    { id:'lnch', label:'Запуск и передача',   color:'c-launch',
+      s:D(2026,7,14), e:D(2026,7,20), subs:[] },
+  ];
+
+  let scale = 'month';
+
+  function getCols(){
+    const cols=[];
+    if(scale==='month'){
+      let c=new Date(PS.getFullYear(),PS.getMonth(),1);
+      while(c<=PE){ cols.push({date:new Date(c),label:RU_M[c.getMonth()]+' '+c.getFullYear()}); c.setMonth(c.getMonth()+1); }
+    } else {
+      let c=new Date(PS); const dw=c.getDay(); c.setDate(c.getDate()-(dw===0?6:dw-1));
+      while(c<=PE){ cols.push({date:new Date(c),label:c.getDate()+' '+RU_MS[c.getMonth()]}); c.setDate(c.getDate()+7); }
+    }
+    return cols;
+  }
+  function colL(cols,i){ return scale==='month'?pct(new Date(cols[i].date.getFullYear(),cols[i].date.getMonth(),1)):pct(cols[i].date); }
+  function colW(cols,i){ return (i+1<cols.length?colL(cols,i+1):100)-colL(cols,i); }
+
+  // tooltip
+  const tip=document.getElementById('gttTip');
+  function showTip(e,t){ tip.textContent=t; tip.classList.add('visible'); mv(e); }
+  function mv(e){ tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY-10)+'px'; }
+  function hideTip(){ tip.classList.remove('visible'); }
+
+  function addTip(el,text){
+    el.addEventListener('mouseenter',e=>showTip(e,text));
+    el.addEventListener('mousemove',mv);
+    el.addEventListener('mouseleave',hideTip);
+  }
+
+  function makeGridLines(td, cols){
+    cols.forEach((_,i)=>{
+      const gl=document.createElement('div'); gl.className='gtt-grid-line';
+      gl.style.left=colL(cols,i)+'%'; td.appendChild(gl);
+    });
+  }
+
+  function makeTodayLine(td){
+    const today=new Date();
+    if(today>=PS&&today<=PE){
+      const tl=document.createElement('div'); tl.className='gtt-today-line';
+      tl.style.left=pct(today)+'%'; td.appendChild(tl);
+    }
+  }
+
+  function makeBar(cls,left,width,text,tipText){
+    const b=document.createElement('div'); b.className='gtt-bar '+cls;
+    b.style.left=left+'%'; b.style.width=width+'%';
+    b.textContent=text; addTip(b,tipText); return b;
+  }
+
+  function render(){
+    const head=document.getElementById('gttHead');
+    const body=document.getElementById('gttBody');
+    head.innerHTML=''; body.innerHTML='';
+    const cols=getCols();
+    const today=new Date();
+
+    // header cells
+    cols.forEach((_,i)=>{
+      const c=document.createElement('div'); c.className='gtt-head-cell';
+      c.style.left=colL(cols,i)+'%'; c.style.width=colW(cols,i)+'%';
+      c.textContent=cols[i].label; head.appendChild(c);
+    });
+    // today chip in header
+    if(today>=PS&&today<=PE){
+      const tl=document.createElement('div'); tl.className='gtt-today-line'; tl.style.left=pct(today)+'%'; head.appendChild(tl);
+      const tc=document.createElement('div'); tc.className='gtt-today-chip'; tc.style.left=pct(today)+'%'; tc.textContent='Сегодня'; head.appendChild(tc);
+    }
+
+    GROUPS.forEach(g=>{
+      const hasSubs=g.subs&&g.subs.length>0;
+
+      // — parent row
+      const tr=document.createElement('tr');
+      tr.className='gtt-tr is-group'; tr.dataset.gid=g.id;
+
+      const tdL=document.createElement('td'); tdL.className='gtt-td-label';
+      const inner=document.createElement('div'); inner.className='gtt-lbl-inner';
+      const tog=document.createElement('span'); tog.className='gtt-toggle'; tog.textContent=hasSubs?'▶':'';
+      const txt=document.createElement('span'); txt.textContent=g.label;
+      inner.appendChild(tog); inner.appendChild(txt); tdL.appendChild(inner);
+      if(hasSubs) tdL.addEventListener('click',()=>toggleGroup(g.id,tog));
+      tr.appendChild(tdL);
+
+      const tdC=document.createElement('td'); tdC.className='gtt-td-chart';
+      makeGridLines(tdC,cols); makeTodayLine(tdC);
+      const bl=pct(g.s), br=pct(new Date(+g.e+86400000));
+      tdC.appendChild(makeBar(g.color,bl,Math.max(br-bl,0.5),g.label,g.label+'\n'+fmtR(g.s,g.e)));
+      tr.appendChild(tdC);
+      body.appendChild(tr);
+
+      // — sub rows
+      if(hasSubs){
+        g.subs.forEach(sub=>{
+          const str=document.createElement('tr');
+          str.className='gtt-tr is-sub hidden'; str.dataset.parent=g.id;
+
+          const stL=document.createElement('td'); stL.className='gtt-td-label';
+          stL.textContent=sub.label; str.appendChild(stL);
+
+          const stC=document.createElement('td'); stC.className='gtt-td-chart';
+          makeGridLines(stC,cols); makeTodayLine(stC);
+          const sl=pct(sub.s), sr2=pct(new Date(+sub.e+86400000));
+          stC.appendChild(makeBar('c-sub '+g.color,sl,Math.max(sr2-sl,0.5),'',sub.label+'\n'+fmtR(sub.s,sub.e)));
+          str.appendChild(stC);
+          body.appendChild(str);
+        });
+      }
+    });
+  }
+
+  function toggleGroup(gid,togEl){
+    const isOpen=togEl.classList.contains('open');
+    togEl.classList.toggle('open',!isOpen);
+    document.querySelectorAll('.gtt-tr.is-sub[data-parent="'+gid+'"]').forEach(r=>{
+      r.classList.toggle('hidden',isOpen);
+    });
+  }
+
+  document.querySelectorAll('.gtt-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      scale=btn.dataset.scale;
+      document.querySelectorAll('.gtt-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+
+<!-- ФОРМАТ РАБОТЫ -->
+<section id="process">
+  <div class="container">
+    <p class="section-num">04 — Формат работы</p>
+    <h2 class="section-title">T&amp;M (Time &amp; Materials)</h2>
+    <div class="work-grid">
+      <div class="work-card featured">
+        <span class="w-icon">⚖️</span>
+        <h3>Формат T&M — полный контроль над бюджетом</h3>
+        <p>В договоре фиксируем состав специалистов и ставки. Каждую пятницу получаете детализированный отчёт о фактически потраченных часах. Платите за реальный результат.</p>
+      </div>
+      <div class="work-card">
+        <span class="w-icon">🔁</span>
+        <h3>Недельные спринты</h3>
+        <p>Вместе формируем бэклог, раз в неделю презентуем результаты и планируем следующий этап.</p>
+      </div>
+      <div class="work-card">
+        <span class="w-icon">🔧</span>
+        <h3>Гибкость при изменениях</h3>
+        <p>Если в ходе проектирования появятся новые задачи — включим их без задержек и лишней бюрократии.</p>
+      </div>
+      <div class="work-card">
+        <span class="w-icon">📅</span>
+        <h3>Постоплата раз в месяц</h3>
+        <p>Расчёт по факту отработанных дней команды. Легко масштабировать объём работ при необходимости.</p>
+      </div>
+      <div class="work-card">
+        <span class="w-icon">💬</span>
+        <h3>Единое окно коммуникации</h3>
+        <p>Менеджер проекта — единственный контакт. Собирает требования, контролирует дедлайны, организует встречи.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- СТАВКИ -->
+<section id="rates">
+  <div class="container">
+    <p class="section-num">05 — Ставки специалистов</p>
+    <h2 class="section-title">Команда проекта</h2>
+    <p style="font-size:16px; color: var(--secondary); margin-bottom: 32px; line-height: 1.6;">Ставки зафиксированы на весь срок проекта. Итоговая стоимость — реально потраченное время, умноженное на согласованные ставки.</p>
+    <table class="rates-table">
+      <thead>
+        <tr>
+          <th>Специалист</th>
+          <th>Зона ответственности</th>
+          <th style="text-align:right">Ставка в час</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="role">Арт-директор</div>
+            <div class="grade">Senior</div>
+          </td>
+          <td class="duties">Формирует визуальное направление, создаёт концепции, контролирует качество, защищает решения перед клиентом</td>
+          <td style="text-align:right">
+            <div class="rate">5 500 ₽</div>
+            <div class="rate-sub">в час</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="role">Продуктовый дизайнер</div>
+            <div class="grade">Middle+</div>
+          </td>
+          <td class="duties">Ресёрч конкурентов, вайрфреймы и флоу, все экраны и состояния, UI-kit, передача макетов в разработку</td>
+          <td style="text-align:right">
+            <div class="rate">3 500 ₽</div>
+            <div class="rate-sub">в час</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="role">Менеджер проекта</div>
+            <div class="grade">Senior</div>
+          </td>
+          <td class="duties">Единое окно коммуникации, планирование сроков и этапов, организация встреч, управление изменениями</td>
+          <td style="text-align:right">
+            <div class="rate">2 000 ₽</div>
+            <div class="rate-sub">в час</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="role">Разработчик</div>
+            <div class="grade">Middle+</div>
+          </td>
+          <td class="duties">Архитектура и настройка проекта, реализация по макетам, интеграция с backend, оптимизация, исправление багов</td>
+          <td style="text-align:right">
+            <div class="rate">3 500 ₽</div>
+            <div class="rate-sub">в час</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="role">Технический директор</div>
+            <div class="grade">Senior</div>
+          </td>
+          <td class="duties">Техническая архитектура, выбор стека, декомпозиция задач, контроль качества кода и сложные интеграции</td>
+          <td style="text-align:right">
+            <div class="rate">6 000 ₽</div>
+            <div class="rate-sub">в час</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- СТОИМОСТЬ -->
+<section id="budget">
+  <div class="container">
+    <p class="section-num">06 — Стоимость</p>
+    <h2 class="section-title">Бюджет проекта</h2>
+    <p style="font-size:16px; color: var(--secondary); margin-bottom: 32px; line-height: 1.6;">Двигаемся поэтапно. Сначала дизайн — оценка точная. Разработка — предварительная, уточним после завершения дизайна.</p>
+    <div class="budget-cards">
+      <div class="budget-card">
+        <div class="b-label">Дизайн</div>
+        <div class="b-amount">2 468 000 ₽</div>
+      </div>
+      <div class="budget-card">
+        <div class="b-label">Разработка</div>
+        <div class="b-amount">1 904 000 ₽</div>
+      </div>
+      <div class="budget-card" style="background: var(--sky); border-color: transparent;">
+        <div class="b-label" style="color: var(--secondary)">НДС 5%</div>
+        <div class="b-amount" style="color: var(--dark)">218 600 ₽</div>
+      </div>
+      <div class="budget-card total">
+        <div class="b-label">Итого по проекту</div>
+        <div class="b-amount">4 372 000 ₽</div>
+      </div>
+    </div>
+    <div class="budget-note">
+      НДС исчисляется дополнительно по ставке 5%. Оценка разработки станет финальной после завершения дизайна и подготовки всех макетов.
+    </div>
+  </div>
+</section>
+
+<!-- КЕЙСЫ -->
+<section id="cases">
+  <div class="container">
+    <p class="section-num">07 — Кейсы</p>
+    <h2 class="section-title">Релевантные проекты</h2>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-img avito-bg">
+          <span class="case-img-placeholder">🟦</span>
+        </div>
+        <div class="case-body">
+          <h3>Карьерный сайт Авито</h3>
+          <p>Спроектировали и обновили сайт для поиска сотрудников. Визуализировали карьерные треки, объяснили особенности вертикалей компании.</p>
+          <a class="case-link" href="https://www.loo.ch/cases/case-avito-career" target="_blank">Смотреть кейс →</a>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-img mila-bg">
+          <span class="case-img-placeholder">🔬</span>
+        </div>
+        <div class="case-body">
+          <h3>Сайт и айдентика MiLaboratories</h3>
+          <p>Новый визуальный образ для американского медтех-стартапа — компании, которая делает софт для анализа медицинских данных в иммунологии.</p>
+          <a class="case-link" href="https://www.loo.ch/cases/case-milaboratory" target="_blank">Читать кейс →</a>
+        </div>
+      </div>
+    </div>
+    <div class="cases-more">
+      <a href="https://www.loo.ch/cases" target="_blank">Всё портфолио студии «Луч» →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="next">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <p class="section-num">08 — Что дальше</p>
+        <h2 class="section-title">Готовы к старту</h2>
+        <ul class="cta-steps">
+          <li>
+            <span class="step-dot">1</span>
+            Отправьте реквизиты вашей компании
+          </li>
+          <li>
+            <span class="step-dot">2</span>
+            Подготовим договор и отправим на согласование
+          </li>
+          <li>
+            <span class="step-dot">3</span>
+            Зафиксируем дату старта и проведём кик-офф встречу
+          </li>
+        </ul>
+      </div>
+      <div class="contact-card">
+        <div class="c-name">Саша Царева</div>
+        <div class="c-role">Руководитель проекта</div>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:tsareva@loo.ch">
+            <span class="contact-link-icon">✉</span>
+            tsareva@loo.ch
+          </a>
+          <a class="contact-link" href="https://t.me/sashtsareva" target="_blank">
+            <span class="contact-link-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.8 3.2L2.4 10.8c-1.3.5-1.3 1.3-.2 1.6l5 1.6 1.9 5.7c.3.7.5.9 1 .9.4 0 .6-.2 1-.5l2.4-2.3 5 3.7c.9.5 1.6.2 1.8-.8l3.2-15.1c.4-1.4-.5-2-1.7-1.4z" fill="rgba(255,255,255,0.7)"/>
+              </svg>
+            </span>
+            @sashtsareva
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="f-logo" href="https://loo.ch" target="_blank">Луч</a>
+  <span class="f-note">loo.ch · Редизайн сайта АУИПИК · 2026</span>
+</footer>
+
+<script>
+  function showStage(id, btn) {
+    document.querySelectorAll('.stage-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.stage-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('stage-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
